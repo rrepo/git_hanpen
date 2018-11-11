@@ -1,0 +1,58 @@
+<header>
+  <div class="header">
+    <div class="heading">
+      <h1><a href="/">はんぺん教</a></h1>
+      <%= link_to image_tag("hanpen_long.png"), "/", class: "main_image" %>
+    </div>
+
+    <p class="">はんぺんはあなたの支えになる。</p>
+        <div class="ber">
+          <a class="square_btn" href="/hanpen/whatis">はんぺん教とは</a>
+          <a class="square_btn" href="/">はんぺん教、教歌</a>
+          <a class="square_btn" href="/hanpen/speak">掲示板</a>
+          <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, class: 'post' ,method: :delete, class: "square_btn"%>
+          <a href="/users/<%= current_user.id %>" class="square_btn">マイページ</a>
+          <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' , class: "square_btn"%>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' , class: "square_btn"%>
+          <% end %>
+        </div>
+  </div>
+</header>
+
+<body>
+<div class="zentai">
+  
+  <div class=bodying>
+      <div class="box11">
+        <div class="contents row">
+            <div class="contents row">
+              <div class="success">
+                <h3>投稿が完了しました。</h3>
+                <a class="btn" href="/hanpen/speak">投稿一覧へ戻る</a>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <%= link_to image_tag("news.png"), "", class: "side_image" %>
+    <h1>NEWS</h1>
+    <h2 class="news">はんぺん教を装った<br>架空請求にお気を付けください！</h2>
+    <p class="news_honnbunn">近頃はんぺん教を装った架空請求が多発しております、焦らず無視してください</p>
+    <%= link_to image_tag("hanpen.png"), "", class: "side_image" %>
+    <h1>〇月〇日祝！<br>はんぺん教ホームページ設立</h1>
+  </div>
+  
+</div>
+          
+</body>
+        
+<footer>
+  <div class="footer">
+    <h1 class="footer">(C) はんぺん教</h1>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,83 @@
+<header>
+  <div class="header">
+    <div class="heading">
+      <h1><a href="/">はんぺん教</a></h1>
+      <%= link_to image_tag("hanpen_long.png"), "/", class: "main_image" %>
+    </div>
+
+    <p class="">はんぺんはあなたの支えになる。</p>
+        <div class="ber">
+          <a class="square_btn" href="/hanpen/whatis">はんぺん教とは</a>
+          <a class="square_btn" href="/">はんぺん教、教歌</a>
+          <a class="square_btn" href="/hanpen/speak">掲示板</a>
+          <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, class: 'post' ,method: :delete, class: "square_btn"%>
+          <a href="/users/<%= current_user.id %>" class="square_btn">マイページ</a>
+          <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' , class: "square_btn"%>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' , class: "square_btn"%>
+          <% end %>
+        </div>
+  </div>
+</header>
+
+<body>
+<div class="zentai">
+  
+  <div class=bodying>
+      <div class="box11">
+          <h1>はんぺんの製法</h1>
+          <p>スケトウダラのすり身に空気を含ませながら卵白、山芋などを調味料として加えながら混ぜながら 成形し 茹で 包装し完成です。</p><br>
+          
+          <h1>はんぺんの歴史</h1>
+          <p>はんぺんは室町末期の料理書「運歩色葉集」や「古今調味集」に見られますので室町末期にははんぺんは存在していたようです 。
+          はんぺんの由来は、駿府の膳夫半平という人が初めて作ったという説や、 
+          円形中高のものと、方形の二種があり、お椀の蓋にすり身をつめて作ったものが、 
+          半円形であることから「半平」という説まで諸説あります。</p><br>
+        
+          <h1>はんぺん教の歴史</h1>
+          <p>はんぺん教とは＊1548年に尹稲凪風がによって解かれたの歴史ある元密教です。
+                はんぺん教創設者尹稲凪風は幼いころから海のエネルギーを感じていましたそして働きながらも海のエネルギーについて
+                自分なりに研究をしていました、そこである仮設を立てましたがすべての生物が海からきているというものです。
+                もしこれがほんとうなら海には生物を生み出すとてつもないエネルギーがあると思いました
+                なのでもっとも効率的に海のエネルギーをとれる食べ物の研究をしました。
+                その結果<strong>はんぺん</strong>が最も海のエネルギーが詰まっていることがわかりました尹稲凪風は思いましたこれはすばらしい            
+                >わたしひとではもったいないすべての人にはんぺんにはんぺんのすばらしさを伝えなくては！
+                そこから教えを開くための1540年から1548年の8年にも及ぶ修行を終えついに
+               <strong>はんぺん</strong>の教えを説きましたこれがはんぺん教創設の経緯です。
+                悩み多き現代社会においてもう一度母なる海に帰ってみることはとても難しいですですが尹稲凪風の修行のおかげで
+                誰でも在家でありながらも海のエネルギーを受けはんぺんの教えに触れられます。</p>
+                
+          <h1>はんぺん教の戒律</h1>
+          <h2>食べ物</h2>
+          <p>何食べてもいいです。
+          豊かな食文化が豊かな生活をもたらすby尹稲凪風</p>
+          <h2>布施</h2>
+          <p>はんぺん教は布施を行っていません。そんなことにお金を使うなら家族の笑顔のためにはんぺんをスーパーで
+          はんぺんを買って家に帰ってください。あなたは幸せになれます。</p>
+          <h2>職業</h2>
+          <p>職業に貴賤はありません。はんぺん職人だらかと言って偉いわけではありません。</p>
+          <h2>他の宗教</h2>
+          <p>掛け持ちも自由です。</p>
+    </div>
+  </div>
+
+  <div class="side">
+    <%= link_to image_tag("news.png"), "", class: "side_image" %>
+    <h1>NEWS</h1>
+    <h2 class="news">はんぺん教を装った<br>架空請求にお気を付けください！</h2>
+    <p class="news_honnbunn">近頃はんぺん教を装った架空請求が多発しております、焦らず無視してください</p>
+    <%= link_to image_tag("hanpen.png"), "", class: "side_image" %>
+    <h1>〇月〇日祝！<br>はんぺん教ホームページ設立</h1>
+  </div>
+  
+</div>
+          
+</body>
+        
+<footer>
+  <div class="footer">
+    <h1 class="footer">(C) はんぺん教</h1>
+  </div>
+</footer>
+</html>

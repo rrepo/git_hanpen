@@ -1,0 +1,78 @@
+<header>
+  <div class="header">
+    <div class="heading">
+      <h1><a href="/">はんぺん教</a></h1>
+      <%= link_to image_tag("hanpen_long.png"), "/", class: "main_image" %>
+    </div>
+
+    <p class="">はんぺんはあなたの支えになる。</p>
+        <div class="ber">
+          <a class="square_btn" href="/hanpen/whatis">はんぺん教とは</a>
+          <a class="square_btn" href="/">はんぺん教、教歌</a>
+          <a class="square_btn" href="/hanpen/speak">掲示板</a>
+          <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, class: 'post' ,method: :delete, class: "square_btn"%>
+          <a href="/users/<%= current_user.id %>" class="square_btn">マイページ</a>
+          <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' , class: "square_btn"%>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' , class: "square_btn"%>
+          <% end %>
+        </div>
+  </div>
+</header>
+
+<body>
+<div class="zentai">
+  
+  <div class=bodying>
+    
+    <a class="square_btn" href="/hanpen/new">投稿</a>
+    
+      <div class="box11">
+
+              <% if user_signed_in? && current_user.id == @hanpen.user_id %>
+    
+              <% end %>
+              <h1><%= @hanpen.user.nickname %>:<%=(@hanpen.text) %></h1>
+
+                <h4>＜コメント一覧＞ログインするとコメントできます。</h4>
+                <% if @comments %>
+                    <% @comments.each do |comment| %>
+                    <p  class="comment">
+                    <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                    <%= comment.text %>
+                    </p><br>
+                    <% end %>
+                <% end %>
+              
+              <div class="container"> 
+              <% if current_user %>
+              <%= form_tag("/hanpen/#{@hanpen.id}/comments", method: :post) do %>
+              <textarea name="text" placeholder="コメントする" rows="2" cols="30" class="sob"></textarea>
+              <input type="submit" value="送信" class="square_btn">
+              <% end %>
+              <% end %>
+              </div>
+              
+      </div>
+  </div>
+
+  <div class="side">
+    <%= link_to image_tag("news.png"), "", class: "side_image" %>
+    <h1>NEWS</h1>
+    <h2 class="news">はんぺん教を装った<br>架空請求にお気を付けください！</h2>
+    <p class="news_honnbunn">近頃はんぺん教を装った架空請求が多発しております、焦らず無視してください</p>
+    <%= link_to image_tag("hanpen.png"), "", class: "side_image" %>
+    <h1>〇月〇日祝！<br>はんぺん教ホームページ設立</h1>
+  </div>
+  
+</div>
+          
+</body>
+        
+<footer>
+  <div class="footer">
+    <h1 class="footer">(C) はんぺん教</h1>
+  </div>
+</footer>
+</html>
